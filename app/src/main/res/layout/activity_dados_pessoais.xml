@@ -22,21 +22,21 @@
             android:id="@+id/edtNome"
             android:hint="@string/nome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/edtIdade"
-            android:hint="@string/idade"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <NumberPicker
+            android:id="@+id/npIdade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"/>
 
         <EditText
             android:id="@+id/edtAltura"
             android:hint="@string/altura_m"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/edtPeso"
@@ -45,38 +45,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <RadioGroup
-            android:id="@+id/rgSexo"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sexo"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerSexo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="16dp">
+            android:entries="@array/sexo"
+            android:layout_marginTop="4dp"/>
 
-            <RadioButton
-                android:id="@+id/rbMasculino"
-                android:text="@string/masculino"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <RadioButton
-                android:id="@+id/rbFeminino"
-                android:text="@string/feminino"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </RadioGroup>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nivel_de_atividade"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
 
         <Spinner
             android:id="@+id/spinnerAtividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"/>
+            android:layout_marginTop="4dp"/>
 
         <Button
             android:id="@+id/btnCalcularIMC"
             android:text="@string/calcular_imc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="24dp"/>
+            android:layout_marginTop="24dp"/>
 
     </LinearLayout>
 </ScrollView>
