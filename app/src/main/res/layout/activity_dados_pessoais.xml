@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -22,7 +21,7 @@
             android:id="@+id/edtNome"
             android:hint="@string/nome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <NumberPicker
             android:id="@+id/npIdade"
@@ -36,7 +35,7 @@
             android:hint="@string/altura_m"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/edtPeso"
@@ -46,25 +45,32 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:id="@+id/labelSexo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sexo"
             android:textStyle="bold"
             android:layout_marginTop="16dp"/>
 
-        <Spinner
-            android:id="@+id/spinnerSexo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/sexo"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
+        <RadioGroup
+            android:id="@+id/rgSexo"
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nivel_de_atividade"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"/>
+            android:paddingTop="4dp">
+
+            <RadioButton
+                android:id="@+id/rbMasculino"
+                android:text="@string/masculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbFeminino"
+                android:text="@string/feminino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
 
         <Spinner
             android:id="@+id/spinnerAtividade"
