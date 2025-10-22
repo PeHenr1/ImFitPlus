@@ -1,22 +1,44 @@
 package br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class ResultadoIMCActivity : AppCompatActivity() {
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultado_imc)
 
-        val tvResultado = findViewById<TextView>(R.id.tvResultado)
+        val tvNome = findViewById<TextView>(R.id.tvNome)
+        val tvIMC = findViewById<TextView>(R.id.tvIMC)
+        val tvCategoria = findViewById<TextView>(R.id.tvCategoria)
+        val btnGastoCalorico = findViewById<Button>(R.id.btnGastoCalorico)
+        val btnVoltar = findViewById<Button>(R.id.btnVoltar)
 
-        val nome = intent.getStringExtra("nome")
+        val nome = intent.getStringExtra("nome") ?: ""
         val imc = intent.getFloatExtra("imc", 0f)
 
-        tvResultado.text = "$nome, seu IMC é %.2f".format(imc)
+        tvNome.text = nome
+        tvIMC.text = "IMC: %.2f".format(imc)
+
+        val categoria = when {
+            imc < 18.5 -> "Abaixo do peso"
+            imc < 25 -> "Normal"
+            imc < 30 -> "Sobrepeso"
+            else -> "Obesidade"
+        }
+        tvCategoria.text = categoria
+
+        btnGastoCalorico.setOnClickListener {
+            val intent = Intent(this, GastoCaloricoActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnVoltar.setOnClickListener {
+            finish()
+        }
     }
 }

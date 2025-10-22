@@ -10,7 +10,8 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tvNome"
+            android:id="@+id/tvTituloGasto"
+            android:text="Gasto Calórico"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
@@ -18,33 +19,18 @@
             android:layout_gravity="center_horizontal"/>
 
         <TextView
-            android:id="@+id/tvIMC"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvExplicacaoGasto"
+            android:text="Aqui você poderá calcular seu gasto calórico diário baseado nos dados do IMC."
+            android:textSize="16sp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"/>
 
-        <TextView
-            android:id="@+id/tvCategoria"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"/>
-
         <Button
-            android:id="@+id/btnGastoCalorico"
-            android:text="@string/calcular_gasto_calorico"
+            android:id="@+id/btnVoltarGasto"
+            android:text="Voltar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"/>
-
-        <Button
-            android:id="@+id/btnVoltar"
-            android:text="@string/voltar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>

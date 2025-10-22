@@ -26,6 +26,9 @@
         <activity
             android:name=".ResultadoIMCActivity"
             android:exported="false"/>
+        <activity
+            android:name=".GastoCaloricoActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

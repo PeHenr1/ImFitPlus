@@ -12,6 +12,8 @@
     <string name="dados_pessoais">Dados Pessoais</string>
     <string name="sexo">Sexo</string>
     <string name="nivel_de_atividade">Nível de atividade</string>
+    <string name="calcular_gasto_calorico">Calcular Gasto Calórico</string>
+    <string name="voltar">Voltar</string>
     <string-array name="sexo">
         <item>Masculino</item>
         <item>Feminino</item>
