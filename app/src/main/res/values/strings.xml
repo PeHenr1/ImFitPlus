@@ -17,6 +17,8 @@
     <string name="calcular_peso_ideal">Calcular Peso Ideal</string>
     <string name="resultado_gasto_calorico">Resultado do Gasto Calórico</string>
     <string name="peso_ideal">Peso Ideal</string>
+    <string name="mensagem_diferenca">Mensagem de diferença</string>
+    <string name="voltar_inicio">Voltar ao início</string>
     <string-array name="sexo">
         <item>Masculino</item>
         <item>Feminino</item>

@@ -32,6 +32,7 @@ class GastoCaloricoActivity : AppCompatActivity() {
         btnCalcularPesoIdeal.setOnClickListener {
             val intent = Intent(this, PesoIdealActivity::class.java)
             intent.putExtra("altura", altura)
+            intent.putExtra("peso", peso)
             intent.putExtra("sexo", sexo)
             startActivity(intent)
         }
