@@ -2,4 +2,12 @@
     <string name="app_name">ImFitPlus</string>
     <string name="boas_vindas">Descubra seu perfil de saúde e receba recomendações personalizadas.</string>
     <string name="comece_aqui">Comece aqui</string>
+    <string name="feminino">Feminino</string>
+    <string name="masculino">Masculino</string>
+    <string name="calcular_imc">Calcular IMC</string>
+    <string name="peso_kg">Peso (kg)</string>
+    <string name="altura_m">Altura (m)</string>
+    <string name="idade">Idade</string>
+    <string name="nome">Nome</string>
+    <string name="dados_pessoais">Dados Pessoais</string>
 </resources>
