@@ -20,6 +20,11 @@ class ResultadoIMCActivity : AppCompatActivity() {
 
         val nome = intent.getStringExtra("nome") ?: ""
         val imc = intent.getFloatExtra("imc", 0f)
+        val peso = intent.getFloatExtra("peso", 0f)
+        val altura = intent.getFloatExtra("altura", 0f)
+        val idade = intent.getIntExtra("idade", 0)
+        val sexo = intent.getStringExtra("sexo") ?: "Masculino"
+        val nivelAtividade = intent.getStringExtra("nivelAtividade") ?: "Sedentário"
 
         tvNome.text = nome
         tvIMC.text = "IMC: %.2f".format(imc)
@@ -33,8 +38,13 @@ class ResultadoIMCActivity : AppCompatActivity() {
         tvCategoria.text = categoria
 
         btnGastoCalorico.setOnClickListener {
-            val intent = Intent(this, GastoCaloricoActivity::class.java)
-            startActivity(intent)
+            val intentGC = Intent(this, GastoCaloricoActivity::class.java)
+            intentGC.putExtra("peso", peso)
+            intentGC.putExtra("altura", altura)
+            intentGC.putExtra("idade", idade)
+            intentGC.putExtra("sexo", sexo)
+            intentGC.putExtra("nivelAtividade", nivelAtividade)
+            startActivity(intentGC)
         }
 
         btnVoltar.setOnClickListener {
