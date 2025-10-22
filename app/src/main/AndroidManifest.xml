@@ -29,6 +29,9 @@
         <activity
             android:name=".GastoCaloricoActivity"
             android:exported="false" />
+        <activity
+            android:name=".PesoIdealActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
