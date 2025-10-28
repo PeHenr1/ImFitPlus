@@ -23,12 +23,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <NumberPicker
-            android:id="@+id/npIdade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center_horizontal"/>
+        <EditText
+            android:id="@+id/edtIdade"
+            android:hint="@string/idade"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/edtAltura"

@@ -12,7 +12,7 @@ class DadosPessoaisActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dados_pessoais)
 
         val edtNome = findViewById<EditText>(R.id.edtNome)
-        val npIdade = findViewById<NumberPicker>(R.id.npIdade)
+        val edtIdade = findViewById<EditText>(R.id.edtIdade)
         val edtAltura = findViewById<EditText>(R.id.edtAltura)
         val edtPeso = findViewById<EditText>(R.id.edtPeso)
         val rgSexo = findViewById<RadioGroup>(R.id.rgSexo)
@@ -28,17 +28,18 @@ class DadosPessoaisActivity : AppCompatActivity() {
 
         btnCalcularIMC.setOnClickListener {
             val nome = edtNome.text.toString().trim()
-            val idade = npIdade.value
+            val idadeStr = edtIdade.text.toString().trim()
             val alturaStr = edtAltura.text.toString().trim()
             val pesoStr = edtPeso.text.toString().trim()
             val sexoId = rgSexo.checkedRadioButtonId
             val nivelAtividade = spinnerAtividade.selectedItem.toString()
 
-            if (nome.isEmpty() || alturaStr.isEmpty() || pesoStr.isEmpty() || sexoId == -1) {
+            if (nome.isEmpty() || idadeStr.isEmpty() || alturaStr.isEmpty() || pesoStr.isEmpty() || sexoId == -1) {
                 Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            val idade = idadeStr.toInt()
             val altura = alturaStr.toFloat()
             val peso = pesoStr.toFloat()
             val sexo = findViewById<RadioButton>(sexoId).text.toString()
