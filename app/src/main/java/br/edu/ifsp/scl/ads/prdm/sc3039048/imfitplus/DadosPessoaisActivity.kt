@@ -19,9 +19,6 @@ class DadosPessoaisActivity : AppCompatActivity() {
         val spinnerAtividade = findViewById<Spinner>(R.id.spinnerAtividade)
         val btnCalcularIMC = findViewById<Button>(R.id.btnCalcularIMC)
 
-        npIdade.minValue = 1
-        npIdade.maxValue = 120
-
         val atividades = arrayOf("Sedentário", "Leve", "Moderado", "Intenso")
         spinnerAtividade.adapter =
             ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, atividades)
