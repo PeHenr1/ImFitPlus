@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.R
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Calculos
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Constant.EXTRA_USUARIO
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Usuario
 
 class PesoIdealActivity : AppCompatActivity() {
 
@@ -17,20 +20,22 @@ class PesoIdealActivity : AppCompatActivity() {
         val tvMensagem = findViewById<TextView>(R.id.tvMensagem)
         val btnVoltarInicio = findViewById<Button>(R.id.btnVoltarInicio)
 
-        val pesoAtual = intent.getFloatExtra("peso", 0f)
-        val altura = intent.getFloatExtra("altura", 0f)
+        val usuario = intent.getParcelableExtra<Usuario>(EXTRA_USUARIO)
 
-        val pesoIdeal = 22 * (altura * altura)
-        val diferenca = pesoAtual - pesoIdeal
+        usuario?.let {
+            val pesoIdeal = Calculos.calcularPesoIdeal(it.altura)
+            val diferenca = it.peso - pesoIdeal
 
-        tvPesoIdeal.text = "Peso Ideal: %.2f kg".format(pesoIdeal)
+            tvPesoIdeal.text = "Peso Ideal: %.2f kg".format(pesoIdeal)
 
-        val mensagem = when {
-            diferenca > 0 -> "Você está %.2f kg acima do ideal".format(diferenca)
-            diferenca < 0 -> "Você está %.2f kg abaixo do ideal".format(-diferenca)
-            else -> "Você está no peso ideal"
+            val mensagem = when {
+                diferenca > 0 -> "Você está %.2f kg acima do ideal".format(diferenca)
+                diferenca < 0 -> "Você está %.2f kg abaixo do ideal".format(-diferenca)
+                else -> "Você está no peso ideal!"
+            }
+
+            tvMensagem.text = mensagem
         }
-        tvMensagem.text = mensagem
 
         btnVoltarInicio.setOnClickListener {
             val intent = Intent(this, WelcomeActivity::class.java)

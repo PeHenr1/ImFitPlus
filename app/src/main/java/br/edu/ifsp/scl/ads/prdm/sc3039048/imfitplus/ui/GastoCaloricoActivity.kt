@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.R
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Calculos
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Constant.EXTRA_USUARIO
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Usuario
 
 class GastoCaloricoActivity : AppCompatActivity() {
 
@@ -17,25 +20,17 @@ class GastoCaloricoActivity : AppCompatActivity() {
         val btnCalcularPesoIdeal = findViewById<Button>(R.id.btnCalcularPesoIdeal)
         val btnVoltar = findViewById<Button>(R.id.btnVoltarGasto)
 
-        val sexo = intent.getStringExtra("sexo") ?: "Masculino"
-        val idade = intent.getIntExtra("idade", 0)
-        val peso = intent.getFloatExtra("peso", 0f)
-        val altura = intent.getFloatExtra("altura", 0f)
+        val usuario = intent.getParcelableExtra<Usuario>(EXTRA_USUARIO)
 
-        val tmb = if (sexo == "Masculino") {
-            66 + (13.7 * peso) + (5 * altura * 100) - (6.8 * idade)
-        } else {
-            655 + (9.6 * peso) + (1.8 * altura * 100) - (4.7 * idade)
-        }
+        usuario?.let {
+            val tmb = Calculos.calcularTMB(it)
+            tvResultado.text = "Sua TMB é: %.1f kcal".format(tmb)
 
-        tvResultado.text = "Sua TMB é: %.1f kcal".format(tmb)
-
-        btnCalcularPesoIdeal.setOnClickListener {
-            val intent = Intent(this, PesoIdealActivity::class.java)
-            intent.putExtra("altura", altura)
-            intent.putExtra("peso", peso)
-            intent.putExtra("sexo", sexo)
-            startActivity(intent)
+            btnCalcularPesoIdeal.setOnClickListener {
+                val intent = Intent(this, PesoIdealActivity::class.java)
+                intent.putExtra(EXTRA_USUARIO, usuario)
+                startActivity(intent)
+            }
         }
 
         btnVoltar.setOnClickListener {
