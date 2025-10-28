@@ -22,7 +22,12 @@ class ResultadoIMCActivity : AppCompatActivity() {
         val btnGastoCalorico = findViewById<Button>(R.id.btnGastoCalorico)
         val btnVoltar = findViewById<Button>(R.id.btnVoltar)
 
-        val usuario = intent.getParcelableExtra<Usuario>(EXTRA_USUARIO)
+        val usuario = if (android.os.Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra(EXTRA_USUARIO, Usuario::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra(EXTRA_USUARIO)
+        }
         val imc = intent.getDoubleExtra("IMC", 0.0)
 
         usuario?.let {

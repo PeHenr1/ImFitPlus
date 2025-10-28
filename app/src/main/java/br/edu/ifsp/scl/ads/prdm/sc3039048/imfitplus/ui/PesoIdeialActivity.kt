@@ -20,7 +20,12 @@ class PesoIdealActivity : AppCompatActivity() {
         val tvMensagem = findViewById<TextView>(R.id.tvMensagem)
         val btnVoltarInicio = findViewById<Button>(R.id.btnVoltarInicio)
 
-        val usuario = intent.getParcelableExtra<Usuario>(EXTRA_USUARIO)
+        val usuario = if (android.os.Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra(EXTRA_USUARIO, Usuario::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra(EXTRA_USUARIO)
+        }
 
         usuario?.let {
             val pesoIdeal = Calculos.calcularPesoIdeal(it.altura)

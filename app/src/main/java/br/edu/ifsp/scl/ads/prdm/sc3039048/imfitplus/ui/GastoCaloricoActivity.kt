@@ -20,7 +20,12 @@ class GastoCaloricoActivity : AppCompatActivity() {
         val btnCalcularPesoIdeal = findViewById<Button>(R.id.btnCalcularPesoIdeal)
         val btnVoltar = findViewById<Button>(R.id.btnVoltarGasto)
 
-        val usuario = intent.getParcelableExtra<Usuario>(EXTRA_USUARIO)
+        val usuario = if (android.os.Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra(EXTRA_USUARIO, Usuario::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra(EXTRA_USUARIO)
+        }
 
         usuario?.let {
             val tmb = Calculos.calcularTMB(it)
