@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ImFitPlus">
         <activity
-            android:name=".DadosPessoaisActivity"
+            android:name=".ui.DadosPessoaisActivity"
             android:exported="false" />
 
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".ui.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,13 +24,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ResultadoIMCActivity"
+            android:name=".ui.ResultadoIMCActivity"
             android:exported="false"/>
         <activity
-            android:name=".GastoCaloricoActivity"
+            android:name=".ui.GastoCaloricoActivity"
             android:exported="false" />
         <activity
-            android:name=".PesoIdealActivity"
+            android:name=".ui.PesoIdealActivity"
             android:exported="false" />
     </application>
 

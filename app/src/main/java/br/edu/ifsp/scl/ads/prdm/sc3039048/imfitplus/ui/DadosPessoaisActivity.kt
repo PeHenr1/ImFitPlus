@@ -1,9 +1,19 @@
-package br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus
+package br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.R
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Calculos
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Constant
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Usuario
 
 class DadosPessoaisActivity : AppCompatActivity() {
 
@@ -41,16 +51,13 @@ class DadosPessoaisActivity : AppCompatActivity() {
             val peso = pesoStr.toFloat()
             val sexo = findViewById<RadioButton>(sexoId).text.toString()
 
-            val imc = peso / (altura * altura)
+            val usuario =
+                Usuario(nome, idade, sexo, altura.toDouble(), peso.toDouble(), nivelAtividade)
+            val imc = Calculos.calcularIMC(usuario.peso, usuario.altura)
 
             val intent = Intent(this, ResultadoIMCActivity::class.java)
-            intent.putExtra("nome", nome)
-            intent.putExtra("idade", idade)
-            intent.putExtra("altura", altura)
-            intent.putExtra("peso", peso)
-            intent.putExtra("sexo", sexo)
-            intent.putExtra("nivelAtividade", nivelAtividade)
-            intent.putExtra("imc", imc)
+            intent.putExtra(Constant.EXTRA_USUARIO, usuario)
+            intent.putExtra("IMC", imc)
             startActivity(intent)
         }
     }

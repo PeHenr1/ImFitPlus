@@ -1,10 +1,11 @@
-package br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus
+package br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.R
 
 class GastoCaloricoActivity : AppCompatActivity() {
 
