@@ -8,17 +8,14 @@
     android:background="@android:color/white"
     tools:context=".ui.WelcomeActivity">
 
-    <Toolbar
+    <include
         android:id="@+id/toolbarTop"
+        layout="@layout/include_toolbar"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="#4B0082"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="@string/app_name"
-        app:titleTextColor="@android:color/white"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/contentLayout"
@@ -62,16 +59,13 @@
 
     </LinearLayout>
 
-    <Toolbar
+    <include
         android:id="@+id/toolbarBottom"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/indigo"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="@string/app_name"
-        app:titleTextColor="@android:color/white"
+        layout="@layout/include_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
