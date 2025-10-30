@@ -29,12 +29,10 @@ class GastoCaloricoActivity : AppCompatActivity() {
         }
 
         usuario?.let {
-            // 1. Define a mensagem personalizada
             tvMensagemGasto.text = getString(R.string.msg_gasto_personalizada, it.nome)
 
-            // 2. Calcula e exibe a TMB
             val tmb = Calculos.calcularTMB(it)
-            tvResultado.text = "%.1f kcal".format(tmb)
+            tvResultado.text = "%.2f kcal".format(tmb)
 
             btnCalcularPesoIdeal.setOnClickListener {
                 val intent = Intent(this, PesoIdealActivity::class.java)
