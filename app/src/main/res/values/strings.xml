@@ -40,4 +40,8 @@
     <string name="msg_sobrepeso">Sobrepeso: IMC 25 – 29.9</string>
     <string name="msg_obesidade">Obesidade: IMC ≥ 30</string>
     <string name="msg_erro">Erro no cálculo. Verifique os dados.</string>
+    <string name="gasto_calorico_diario_titulo">Gasto Calórico Diário</string>
+    <string name="msg_gasto_personalizada">%s, seu gasto calórico diário é:</string>
+    <string name="sua_taxa_metabolica_basal">Sua Taxa Metabólica Basal (TMB) é:</string>
+    <string name="icone_gasto_calorico">Ícone de gasto calórico (chama).</string>
 </resources>
