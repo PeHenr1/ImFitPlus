@@ -1,50 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F0F4F7"
+    tools:context=".ui.ResultadoIMCActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <include
+        layout="@layout/include_toolbar"
+        android:id="@+id/toolbarTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/tvNome"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"/>
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/tvIMC"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"/>
-
-        <TextView
-            android:id="@+id/tvCategoria"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"/>
-
-        <Button
-            android:id="@+id/btnGastoCalorico"
-            android:text="@string/calcular_gasto_calorico"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"/>
+            android:paddingVertical="32dp"
+            android:gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/btnVoltar"
-            android:text="@string/voltar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"/>
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seu_resultado_imc"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvNome"
+                android:textSize="18sp"
+                android:textColor="#5A5A5A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                tools:text="Olá, João!" />
+
+            <ImageView
+                android:id="@+id/imgStatus"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="32dp"
+                android:src="@drawable/ic_check"
+                android:contentDescription="@string/icone_status_saude"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seu_indice_de_massa_corporal"
+                android:textSize="16sp"
+                android:textColor="#5A5A5A"/>
+
+            <TextView
+                android:id="@+id/tvIMC"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                tools:text="24.5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_saude"
+                android:textSize="16sp"
+                android:textColor="#5A5A5A"/>
+
+            <TextView
+                android:id="@+id/tvCategoria"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                tools:text="Peso Normal"/>
+
+            <TextView
+                android:id="@+id/tvMensagemCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="#5A5A5A"
+                android:layout_marginBottom="40dp"
+                tools:text="Mensagem descritiva da categoria do IMC" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D3D3D3"
+                android:layout_marginBottom="32dp"/>
+
+            <Button
+                android:id="@+id/btnGastoCalorico"
+                android:text="@string/calcular_gasto_calorico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnVoltar"
+                android:text="@string/voltar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:textColor="?attr/colorPrimary"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

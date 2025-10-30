@@ -30,4 +30,14 @@
         <item>Prefiro não informar</item>
     </string-array>
     <string name="texto_convite">Preencha os dados e descubra seu plano fitness.</string>
+    <string name="seu_resultado_imc">Resultado do seu IMC</string>
+    <string name="seu_indice_de_massa_corporal">Seu Índice de Massa Corporal é:</string>
+    <string name="categoria_saude">Categoria de Saúde:</string>
+    <string name="icone_status_saude">Ícone de status de saúde</string>
+    <string name="ola_usuario">Olá, %s!</string>
+    <string name="msg_abaixo_peso">Abaixo do peso: IMC &lt; 18.5</string>
+    <string name="msg_normal">Normal: IMC 18.5 – 24.9</string>
+    <string name="msg_sobrepeso">Sobrepeso: IMC 25 – 29.9</string>
+    <string name="msg_obesidade">Obesidade: IMC ≥ 30</string>
+    <string name="msg_erro">Erro no cálculo. Verifique os dados.</string>
 </resources>
