@@ -6,12 +6,16 @@
     <string name="masculino">Masculino</string>
     <string name="calcular_imc">Calcular IMC</string>
     <string name="peso_kg">Peso (kg)</string>
+    <string name="ex_peso">70</string>
     <string name="altura_m">Altura (m)</string>
+    <string name="ex_altura">1.70</string>
     <string name="idade">Idade</string>
+    <string name="ex_idade">18</string>
     <string name="nome">Nome</string>
+    <string name="ex_nome">Fulano</string>
     <string name="dados_pessoais">Dados Pessoais</string>
     <string name="sexo">Sexo</string>
-    <string name="nivel_de_atividade">Nível de atividade</string>
+    <string name="nivel_de_atividade">Nível de Atividade</string>
     <string name="calcular_gasto_calorico">Calcular Gasto Calórico</string>
     <string name="voltar">Voltar</string>
     <string name="calcular_peso_ideal">Calcular Peso Ideal</string>
@@ -25,4 +29,5 @@
         <item>Não-Binário</item>
         <item>Prefiro não informar</item>
     </string-array>
+    <string name="texto_convite">Preencha os dados e descubra seu plano fitness.</string>
 </resources>

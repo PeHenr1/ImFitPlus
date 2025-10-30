@@ -1,89 +1,204 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F0F4F7"
+    tools:context=".ui.DadosPessoaisActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <include
+        layout="@layout/include_toolbar"
+        android:id="@+id/toolbarTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/tvTitulo"
-            android:text="@string/dados_pessoais"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTop"
+        app:layout_constraintBottom_toTopOf="@id/toolbarBottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"/>
+            android:paddingVertical="16dp">
 
-        <EditText
-            android:id="@+id/edtNome"
-            android:hint="@string/nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
 
-        <EditText
-            android:id="@+id/edtIdade"
-            android:hint="@string/idade"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tvTitulo"
+                    android:text="@string/dados_pessoais"
+                    android:textSize="28sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-        <EditText
-            android:id="@+id/edtAltura"
-            android:hint="@string/altura_m"
-            android:inputType="numberDecimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtPeso"
-            android:hint="@string/peso_kg"
-            android:inputType="numberDecimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvConvite"
+                android:text="@string/texto_convite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="14sp"
+                android:textColor="#5A5A5A"
+                android:layout_marginBottom="24dp"/>
 
-        <TextView
-            android:id="@+id/labelSexo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sexo"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"/>
+            <TextView
+                android:id="@+id/labelNome"
+                android:text="@string/nome"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/edtNome"/>
 
-        <RadioGroup
-            android:id="@+id/rgSexo"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="4dp">
+            <EditText
+                android:id="@+id/edtNome"
+                android:inputType="textPersonName"
+                android:autofillHints="name"
+                android:textColorHint="#757575"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
 
-            <RadioButton
-                android:id="@+id/rbMasculino"
-                android:text="@string/masculino"
+            <TextView
+                android:id="@+id/labelIdade"
+                android:text="@string/idade"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/edtIdade"/>
+
+            <EditText
+                android:id="@+id/edtIdade"
+                android:inputType="number"
+                android:autofillHints="age"
+                android:textColorHint="#757575"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/labelAltura"
+                android:text="@string/altura_m"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/edtAltura"/>
+
+            <EditText
+                android:id="@+id/edtAltura"
+                android:inputType="numberDecimal"
+                android:autofillHints="none"
+                android:textColorHint="#757575"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/labelPeso"
+                android:text="@string/peso_kg"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/edtPeso"/>
+
+            <EditText
+                android:id="@+id/edtPeso"
+                android:inputType="numberDecimal"
+                android:autofillHints="none"
+                android:textColorHint="#757575"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/labelSexo"
+                android:text="@string/sexo"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <RadioButton
-                android:id="@+id/rbFeminino"
-                android:text="@string/feminino"
+            <RadioGroup
+                android:id="@+id/rgSexo"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:paddingTop="4dp">
+
+                <RadioButton
+                    android:id="@+id/rbMasculino"
+                    android:text="@string/masculino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"/>
+
+                <RadioButton
+                    android:id="@+id/rbFeminino"
+                    android:text="@string/feminino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/labelAtividade"
+                android:text="@string/nivel_de_atividade"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-        </RadioGroup>
 
-        <Spinner
-            android:id="@+id/spinnerAtividade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"/>
+            <Spinner
+                android:id="@+id/spinnerAtividade"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="24dp"
+                style="@android:style/Widget.Holo.Spinner"/>
 
-        <Button
-            android:id="@+id/btnCalcularIMC"
-            android:text="@string/calcular_imc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"/>
+            <Button
+                android:id="@+id/btnCalcularIMC"
+                android:text="@string/calcular_imc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:layout_marginBottom="16dp"/>
 
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        layout="@layout/include_toolbar"
+        android:id="@+id/toolbarBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
