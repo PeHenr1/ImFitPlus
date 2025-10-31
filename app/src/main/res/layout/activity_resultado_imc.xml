@@ -102,6 +102,14 @@
                 android:layout_marginBottom="40dp"
                 tools:text="Mensagem descritiva da categoria do IMC" />
 
+            <CheckBox
+                android:id="@+id/cbReceberDicas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/receber_dicas"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
