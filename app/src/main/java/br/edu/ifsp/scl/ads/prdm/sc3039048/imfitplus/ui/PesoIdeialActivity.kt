@@ -2,23 +2,21 @@ package br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.R
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Calculos
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Constant.EXTRA_USUARIO
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Usuario
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.databinding.ActivityPesoIdealBinding
 
 class PesoIdealActivity : AppCompatActivity() {
 
+    private val binding: ActivityPesoIdealBinding by lazy {
+        ActivityPesoIdealBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_peso_ideal)
-
-        val tvPesoIdeal = findViewById<TextView>(R.id.tvPesoIdeal)
-        val tvMensagem = findViewById<TextView>(R.id.tvMensagem)
-        val btnVoltarInicio = findViewById<Button>(R.id.btnVoltarInicio)
+        setContentView(binding.root)
 
         val usuario = if (android.os.Build.VERSION.SDK_INT >= 33) {
             intent.getParcelableExtra(EXTRA_USUARIO, Usuario::class.java)
@@ -31,7 +29,7 @@ class PesoIdealActivity : AppCompatActivity() {
             val pesoIdeal = Calculos.calcularPesoIdeal(it.altura)
             val diferenca = it.peso - pesoIdeal
 
-            tvPesoIdeal.text = "%.2f kg".format(pesoIdeal)
+            binding.tvPesoIdeal.text = "%.2f kg".format(pesoIdeal)
 
             val mensagem = when {
                 diferenca > 0 -> "Você está %.2f kg acima do ideal".format(diferenca)
@@ -39,10 +37,10 @@ class PesoIdealActivity : AppCompatActivity() {
                 else -> "Você está no peso ideal!"
             }
 
-            tvMensagem.text = mensagem
+            binding.tvMensagem.text = mensagem
         }
 
-        btnVoltarInicio.setOnClickListener {
+        binding.btnVoltarInicio.setOnClickListener {
             val intent = Intent(this, WelcomeActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
