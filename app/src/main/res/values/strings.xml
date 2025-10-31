@@ -22,13 +22,7 @@
     <string name="resultado_gasto_calorico">Resultado do Gasto Calórico</string>
     <string name="peso_ideal">Peso Ideal</string>
     <string name="mensagem_diferenca">Mensagem de diferença</string>
-    <string name="voltar_inicio">Voltar ao início</string>
-    <string-array name="sexo">
-        <item>Masculino</item>
-        <item>Feminino</item>
-        <item>Não-Binário</item>
-        <item>Prefiro não informar</item>
-    </string-array>
+    <string name="voltar_inicio">Voltar ao Início</string>
     <string name="texto_convite">Preencha os dados e descubra seu plano fitness.</string>
     <string name="seu_resultado_imc">Resultado do seu IMC</string>
     <string name="seu_indice_de_massa_corporal">Seu Índice de Massa Corporal é:</string>
@@ -44,4 +38,6 @@
     <string name="msg_gasto_personalizada">%s, seu gasto calórico diário é:</string>
     <string name="sua_taxa_metabolica_basal">Sua Taxa Metabólica Basal (TMB) é:</string>
     <string name="icone_gasto_calorico">Ícone de gasto calórico (chama).</string>
+    <string name="seu_peso_ideal_e">Meta de Peso Ideal</string>
+    <string name="meta_de_peso_calculada">Sua meta de peso ideal é:</string>
 </resources>

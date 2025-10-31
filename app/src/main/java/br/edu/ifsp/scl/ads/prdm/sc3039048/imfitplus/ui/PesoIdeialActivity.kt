@@ -31,7 +31,7 @@ class PesoIdealActivity : AppCompatActivity() {
             val pesoIdeal = Calculos.calcularPesoIdeal(it.altura)
             val diferenca = it.peso - pesoIdeal
 
-            tvPesoIdeal.text = "Peso Ideal: %.2f kg".format(pesoIdeal)
+            tvPesoIdeal.text = "%.2f kg".format(pesoIdeal)
 
             val mensagem = when {
                 diferenca > 0 -> "Você está %.2f kg acima do ideal".format(diferenca)
