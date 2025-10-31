@@ -1,7 +1,6 @@
 package br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.ui
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.ImageView
@@ -37,7 +36,7 @@ class ResultadoIMCActivity : AppCompatActivity() {
             binding.tvIMC.text = "%.2f".format(imc)
             binding.tvCategoria.text = categoria
 
-            atualizarStatusUI(categoria, binding.tvCategoria, binding.imgStatus, binding.tvMensagemCategoria)
+            atualizarStatusUI(categoria, binding.imgStatus, binding.tvMensagemCategoria)
 
             binding.btnGastoCalorico.setOnClickListener { _ ->
                 val intentGC = Intent(this, GastoCaloricoActivity::class.java)
@@ -53,39 +52,25 @@ class ResultadoIMCActivity : AppCompatActivity() {
 
     private fun atualizarStatusUI(
         categoria: String,
-        tvCategoria: TextView,
         imgStatus: ImageView,
         tvMensagemCategoria: TextView
     ) {
-        val (cor: Int, icone: Int, mensagem: String) = when (categoria) {
-            "Abaixo do peso" -> Triple(
-                Color.parseColor("#FFC107"),
-                R.drawable.ic_warning,
-                getString(R.string.msg_abaixo_peso)
-            )
-            "Normal" -> Triple(
-                Color.parseColor("#4CAF50"),
-                R.drawable.ic_check,
-                getString(R.string.msg_normal)
-            )
-            "Sobrepeso" -> Triple(
-                Color.parseColor("#FF9800"),
-                R.drawable.ic_warning,
-                getString(R.string.msg_sobrepeso)
-            )
-            "Obesidade" -> Triple(
-                Color.parseColor("#F44336"),
-                R.drawable.ic_error,
-                getString(R.string.msg_obesidade)
-            )
-            else -> Triple(
-                Color.BLACK,
-                R.drawable.ic_error,
-                getString(R.string.msg_erro)
-            )
+        val icone: Int = when (categoria) {
+            "Abaixo do peso" -> R.drawable.ic_warning
+            "Normal" -> R.drawable.ic_check
+            "Sobrepeso" -> R.drawable.ic_warning
+            "Obesidade" -> R.drawable.ic_error
+            else -> R.drawable.ic_error
         }
 
-        tvCategoria.setTextColor(cor)
+        val mensagem: String = when (categoria) {
+            "Abaixo do peso" -> getString(R.string.msg_abaixo_peso)
+            "Normal" -> getString(R.string.msg_normal)
+            "Sobrepeso" -> getString(R.string.msg_sobrepeso)
+            "Obesidade" -> getString(R.string.msg_obesidade)
+            else -> getString(R.string.msg_erro)
+        }
+
         imgStatus.setImageResource(icone)
         tvMensagemCategoria.text = mensagem
     }
