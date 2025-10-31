@@ -38,11 +38,54 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/seu_peso_ideal_e"
+                android:text="@string/resumo_saude"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvNomeResumo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nome"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seu_indice_de_massa_corporal"
+                android:textSize="16sp"
+                android:textColor="#5A5A5A"/>
+
+            <TextView
+                android:id="@+id/tvIMCResumo"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                tools:text="24.5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoria_saude"
+                android:textSize="16sp"
+                android:textColor="#5A5A5A"/>
+
+            <TextView
+                android:id="@+id/tvCategoriaResumo"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                tools:text="Peso Normal"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,8 +95,8 @@
                 android:textColor="#5A5A5A"/>
 
             <TextView
-                android:id="@+id/tvPesoIdeal"
-                android:textSize="48sp"
+                android:id="@+id/tvPesoIdealResumo"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
@@ -61,29 +104,48 @@
                 android:layout_marginBottom="16dp"
                 tools:text="75.00 kg"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#D3D3D3"
-                android:layout_marginVertical="24dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seu_gasto_calorico_diario_total"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/tvMensagem"
-                android:textSize="20sp"
+                android:id="@+id/tvGastoCaloricoTotalResumo"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginBottom="40dp"
+                tools:text="2100 kcal/dia"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recomendacao"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tvRecomendacaoConsumoResumo"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                tools:text="Você está 10.5 kg acima do ideal"/>
+                android:textColor="@color/black"
+                tools:text="4.5L"/>
+
 
             <Button
-                android:id="@+id/btnResumoSaude"
+                android:id="@+id/btnVoltarInicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:paddingVertical="12dp"
-                android:text="@string/ver_resumo"/>
+                android:text="@string/voltar_inicio" />
 
         </LinearLayout>
     </ScrollView>

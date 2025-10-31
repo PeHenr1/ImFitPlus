@@ -32,6 +32,9 @@
         <activity
             android:name=".ui.PesoIdealActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.ResumoSaudeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

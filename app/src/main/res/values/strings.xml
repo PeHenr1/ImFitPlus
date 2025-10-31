@@ -42,4 +42,7 @@
     <string name="meta_de_peso_calculada">Sua meta de peso ideal é:</string>
     <string name="receber_dicas">Gostaria de receber dicas de exercícios e alimentação?</string>
     <string name="seu_gasto_calorico_diario_total">Seu Gasto Calórico Diário Total:</string>
+    <string name="resumo_saude">Resumo da Saúde</string>
+    <string name="ver_resumo">Gerar Resumo</string>
+    <string name="recomendacao">Recomendação de Ingestão de Água</string>
 </resources>

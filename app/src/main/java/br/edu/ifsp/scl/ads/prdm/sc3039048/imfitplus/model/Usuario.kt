@@ -13,6 +13,8 @@ data class Usuario(
     val nivelAtividade: String,
     var imc: Double = 0.0,
     var tmb: Double = 0.0,
-    var gastoCaloricoDiario: Double = 0.0
+    var gastoCaloricoDiario: Double = 0.0,
+    var categoria: String = "",
+    var pesoIdeal: Double = 0.0
 ) : Parcelable
 

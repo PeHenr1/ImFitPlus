@@ -36,6 +36,7 @@ class ResultadoIMCActivity : AppCompatActivity() {
             binding.tvIMC.text = "%.2f".format(imc)
             binding.tvCategoria.text = categoria
 
+            usuario.categoria = categoria
             atualizarStatusUI(categoria, binding.imgStatus, binding.tvMensagemCategoria)
 
             binding.btnGastoCalorico.setOnClickListener { _ ->

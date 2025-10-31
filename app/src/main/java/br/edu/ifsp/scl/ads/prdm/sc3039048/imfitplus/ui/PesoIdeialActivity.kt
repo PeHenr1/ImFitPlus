@@ -30,6 +30,7 @@ class PesoIdealActivity : AppCompatActivity() {
             val diferenca = it.peso - pesoIdeal
 
             binding.tvPesoIdeal.text = "%.2f kg".format(pesoIdeal)
+            usuario.pesoIdeal = pesoIdeal
 
             val mensagem = when {
                 diferenca > 0 -> "Você está %.2f kg acima do ideal".format(diferenca)
@@ -40,8 +41,8 @@ class PesoIdealActivity : AppCompatActivity() {
             binding.tvMensagem.text = mensagem
         }
 
-        binding.btnVoltarInicio.setOnClickListener {
-            val intent = Intent(this, WelcomeActivity::class.java)
+        binding.btnResumoSaude.setOnClickListener {
+            val intent = Intent(this, ResumoSaudeActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()
