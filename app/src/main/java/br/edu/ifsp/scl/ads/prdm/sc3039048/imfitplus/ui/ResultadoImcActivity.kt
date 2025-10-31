@@ -37,6 +37,7 @@ class ResultadoIMCActivity : AppCompatActivity() {
         usuario?.let {
             tvNome.text = getString(R.string.ola_usuario, it.nome)
 
+            val imc = it.imc
             val categoria = Calculos.categoriaIMC(imc)
             tvIMC.text = "%.2f".format(imc)
             tvCategoria.text = categoria

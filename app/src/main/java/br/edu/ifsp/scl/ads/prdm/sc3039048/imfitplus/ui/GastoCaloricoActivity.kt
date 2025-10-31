@@ -16,8 +16,9 @@ class GastoCaloricoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gasto_calorico)
 
-        val tvResultado = findViewById<TextView>(R.id.tvResultadoGasto)
-        val tvMensagemGasto = findViewById<TextView>(R.id.tvMensagemGasto) // NOVO
+        val tvTMB = findViewById<TextView>(R.id.tvResultadoGasto)
+        val tvGastoTotal = findViewById<TextView>(R.id.tvGastoCaloricoTotal)
+        val tvMensagemGasto = findViewById<TextView>(R.id.tvMensagemGasto)
         val btnCalcularPesoIdeal = findViewById<Button>(R.id.btnCalcularPesoIdeal)
         val btnVoltar = findViewById<Button>(R.id.btnVoltarGasto)
 
@@ -33,6 +34,13 @@ class GastoCaloricoActivity : AppCompatActivity() {
 
             val tmb = Calculos.calcularTMB(it)
             tvResultado.text = "%.2f kcal".format(tmb)
+            val gastoTotal = Calculos.calcularGastoCaloricoDiario(it)
+
+            it.tmb = tmb
+            it.gastoCaloricoDiario = gastoTotal
+
+            tvGastoTotal.text = "%.0f kcal/dia".format(gastoTotal)
+            tvTMB.text = "%.0f kcal/dia".format(tmb)
 
             btnCalcularPesoIdeal.setOnClickListener {
                 val intent = Intent(this, PesoIdealActivity::class.java)

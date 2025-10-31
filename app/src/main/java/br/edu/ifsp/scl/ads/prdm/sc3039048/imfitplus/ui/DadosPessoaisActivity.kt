@@ -55,6 +55,8 @@ class DadosPessoaisActivity : AppCompatActivity() {
                 Usuario(nome, idade, sexo, altura.toDouble(), peso.toDouble(), nivelAtividade)
             val imc = Calculos.calcularIMC(usuario.peso, usuario.altura)
 
+            usuario.imc = imc
+
             val intent = Intent(this, ResultadoIMCActivity::class.java)
             intent.putExtra(Constant.EXTRA_USUARIO, usuario)
             intent.putExtra("IMC", imc)

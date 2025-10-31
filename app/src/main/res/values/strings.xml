@@ -41,4 +41,5 @@
     <string name="seu_peso_ideal_e">Meta de Peso Ideal</string>
     <string name="meta_de_peso_calculada">Sua meta de peso ideal é:</string>
     <string name="receber_dicas">Gostaria de receber dicas de exercícios e alimentação?</string>
+    <string name="seu_gasto_calorico_diario_total">Seu Gasto Calórico Diário Total:</string>
 </resources>

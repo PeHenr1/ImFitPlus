@@ -10,6 +10,9 @@ data class Usuario(
     val sexo: String,
     val altura: Double,
     val peso: Double,
-    val nivelAtividade: String
+    val nivelAtividade: String,
+    var imc: Double = 0.0,
+    var tmb: Double = 0.0,
+    var gastoCaloricoDiario: Double = 0.0
 ) : Parcelable
 

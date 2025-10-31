@@ -27,4 +27,19 @@ object Calculos {
             655 + (9.6 * usuario.peso) + (1.8 * alturaCm) - (4.7 * usuario.idade)
         }
     }
+
+    fun calcularGastoCaloricoDiario(usuario: Usuario): Double {
+        val tmb = calcularTMB(usuario)
+        val nivelLimpo = usuario.nivelAtividade.trim().lowercase()
+
+        val fator = when (nivelLimpo) {
+            "sedentário" -> 1.2
+            "leve" -> 1.375
+            "moderado" -> 1.55
+            "intenso" -> 1.725
+            else -> 1.2
+        }
+
+        return tmb * fator
+    }
 }
