@@ -32,7 +32,6 @@ class ResultadoIMCActivity : AppCompatActivity() {
             @Suppress("DEPRECATION")
             intent.getParcelableExtra(EXTRA_USUARIO)
         }
-        val imc = intent.getDoubleExtra("IMC", 0.0)
 
         usuario?.let {
             tvNome.text = getString(R.string.ola_usuario, it.nome)

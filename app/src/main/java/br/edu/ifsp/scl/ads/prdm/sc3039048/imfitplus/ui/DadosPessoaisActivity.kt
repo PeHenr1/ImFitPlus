@@ -59,7 +59,6 @@ class DadosPessoaisActivity : AppCompatActivity() {
 
             val intent = Intent(this, ResultadoIMCActivity::class.java)
             intent.putExtra(Constant.EXTRA_USUARIO, usuario)
-            intent.putExtra("IMC", imc)
             startActivity(intent)
         }
     }

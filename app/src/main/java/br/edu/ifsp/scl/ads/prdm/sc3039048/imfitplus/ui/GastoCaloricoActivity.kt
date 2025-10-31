@@ -33,7 +33,6 @@ class GastoCaloricoActivity : AppCompatActivity() {
             tvMensagemGasto.text = getString(R.string.msg_gasto_personalizada, it.nome)
 
             val tmb = Calculos.calcularTMB(it)
-            tvResultado.text = "%.2f kcal".format(tmb)
             val gastoTotal = Calculos.calcularGastoCaloricoDiario(it)
 
             it.tmb = tmb
