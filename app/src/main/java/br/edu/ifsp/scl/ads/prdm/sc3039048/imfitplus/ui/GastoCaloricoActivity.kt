@@ -9,18 +9,16 @@ import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.R
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Calculos
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Constant.EXTRA_USUARIO
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Usuario
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.databinding.ActivityGastoCaloricoBinding
 
 class GastoCaloricoActivity : AppCompatActivity() {
+    private val binding: ActivityGastoCaloricoBinding by lazy {
+        ActivityGastoCaloricoBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gasto_calorico)
-
-        val tvTMB = findViewById<TextView>(R.id.tvResultadoGasto)
-        val tvGastoTotal = findViewById<TextView>(R.id.tvGastoCaloricoTotal)
-        val tvMensagemGasto = findViewById<TextView>(R.id.tvMensagemGasto)
-        val btnCalcularPesoIdeal = findViewById<Button>(R.id.btnCalcularPesoIdeal)
-        val btnVoltar = findViewById<Button>(R.id.btnVoltarGasto)
+        setContentView(binding.root)
 
         val usuario = if (android.os.Build.VERSION.SDK_INT >= 33) {
             intent.getParcelableExtra(EXTRA_USUARIO, Usuario::class.java)
@@ -30,7 +28,7 @@ class GastoCaloricoActivity : AppCompatActivity() {
         }
 
         usuario?.let {
-            tvMensagemGasto.text = getString(R.string.msg_gasto_personalizada, it.nome)
+            binding.tvMensagemGasto.text = getString(R.string.msg_gasto_personalizada, it.nome)
 
             val tmb = Calculos.calcularTMB(it)
             val gastoTotal = Calculos.calcularGastoCaloricoDiario(it)
@@ -38,17 +36,17 @@ class GastoCaloricoActivity : AppCompatActivity() {
             it.tmb = tmb
             it.gastoCaloricoDiario = gastoTotal
 
-            tvGastoTotal.text = "%.0f kcal/dia".format(gastoTotal)
-            tvTMB.text = "%.0f kcal/dia".format(tmb)
+            binding.tvGastoCaloricoTotal.text = "%.0f kcal/dia".format(gastoTotal)
+            binding.tvResultadoGasto.text = "%.0f kcal/dia".format(tmb)
 
-            btnCalcularPesoIdeal.setOnClickListener {
+            binding.btnCalcularPesoIdeal.setOnClickListener {
                 val intent = Intent(this, PesoIdealActivity::class.java)
                 intent.putExtra(EXTRA_USUARIO, usuario)
                 startActivity(intent)
             }
         }
 
-        btnVoltar.setOnClickListener {
+        binding.btnVoltarGasto.setOnClickListener {
             finish()
         }
     }
