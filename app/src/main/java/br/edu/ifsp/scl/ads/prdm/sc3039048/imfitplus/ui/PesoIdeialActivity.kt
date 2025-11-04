@@ -43,7 +43,7 @@ class PesoIdealActivity : AppCompatActivity() {
 
         binding.btnResumoSaude.setOnClickListener {
             val intent = Intent(this, ResumoSaudeActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            intent.putExtra(EXTRA_USUARIO, usuario)
             startActivity(intent)
             finish()
         }
