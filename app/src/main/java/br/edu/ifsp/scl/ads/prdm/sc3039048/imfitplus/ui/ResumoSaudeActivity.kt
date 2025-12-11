@@ -47,6 +47,6 @@ class ResumoSaudeActivity : AppCompatActivity() {
     }
 
     private fun calculaRecomendacaoAgua(peso: Double) {
-        binding.tvRecomendacaoConsumoResumo.text = "%.1f L".format(peso * 0.350)
+        binding.tvRecomendacaoConsumoResumo.text = "%.1f L".format(peso * 0.0350)
     }
 }
