@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.databinding.ActivityResumoSaudeBinding
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Constant.EXTRA_USUARIO
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Usuario
+import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.UsuarioSqlite
 
 class ResumoSaudeActivity : AppCompatActivity() {
 
@@ -24,14 +25,18 @@ class ResumoSaudeActivity : AppCompatActivity() {
             intent.getParcelableExtra(EXTRA_USUARIO)
         }
 
+        usuario?.let { user ->
+            binding.tvNomeResumo.text = user.nome
+            binding.tvIMCResumo.text = "%.2f".format(user.imc)
+            binding.tvCategoriaResumo.text = user.categoria
+            binding.tvPesoIdealResumo.text = "%.2f kg".format(user.pesoIdeal)
+            binding.tvGastoCaloricoTotalResumo.text =
+                "%.0f kcal/dia".format(user.gastoCaloricoDiario)
 
-        usuario?.let {
-            binding.tvNomeResumo.text = it.nome
-            binding.tvIMCResumo.text = "%.2f".format(it.imc)
-            binding.tvCategoriaResumo.text = it.categoria
-            binding.tvPesoIdealResumo.text = "%.2f kg".format(it.pesoIdeal)
-            binding.tvGastoCaloricoTotalResumo.text = "%.0f kcal/dia".format(it.gastoCaloricoDiario)
-            calculaRecomendacaoAgua(it.peso)
+            calculaRecomendacaoAgua(user.peso)
+
+            val dao = UsuarioSqlite(this)
+            dao.inserirUsuario(user)
         }
         binding.btnVoltarInicio.setOnClickListener {
             val intent = Intent(this, WelcomeActivity::class.java)
@@ -41,9 +46,7 @@ class ResumoSaudeActivity : AppCompatActivity() {
         }
     }
 
-    private fun calculaRecomendacaoAgua(
-        peso: Double
-    ) {
-        binding.tvRecomendacaoConsumoResumo.text = "%.1f L".format(peso * 0.350)
+    private fun calculaRecomendacaoAgua(peso: Double) {
+        binding.tvRecomendacaoConsumoResumo.text = "%.1f L".format(peso * 0.0350)
     }
 }
