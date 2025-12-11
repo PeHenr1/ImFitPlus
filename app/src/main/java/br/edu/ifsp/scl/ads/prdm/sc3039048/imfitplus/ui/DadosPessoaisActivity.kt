@@ -19,7 +19,6 @@ class DadosPessoaisActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(binding.root)
 
         val atividades = arrayOf("Sedentário", "Leve", "Moderado", "Intenso")
@@ -34,21 +33,30 @@ class DadosPessoaisActivity : AppCompatActivity() {
             val sexoId = binding.rgSexo.checkedRadioButtonId
             val nivelAtividade = binding.spinnerAtividade.selectedItem.toString()
 
-            if (nome.isEmpty() || idadeStr.isEmpty() || alturaStr.isEmpty() || pesoStr.isEmpty() || sexoId == -1) {
+            if (nome.isEmpty() || idadeStr.isEmpty() || alturaStr.isEmpty() ||
+                pesoStr.isEmpty() || sexoId == -1
+            ) {
                 Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val idade = idadeStr.toInt()
-            val altura = alturaStr.toFloat()
-            val peso = pesoStr.toFloat()
+            val altura = alturaStr.toDouble()
+            val peso = pesoStr.toDouble()
             val sexo = findViewById<RadioButton>(sexoId).text.toString()
 
-            val usuario =
-                Usuario(nome, idade, sexo, altura.toDouble(), peso.toDouble(), nivelAtividade)
-            val imc = Calculos.calcularIMC(usuario.peso, usuario.altura)
+            val usuario = Usuario(
+                nome = nome,
+                idade = idade,
+                sexo = sexo,
+                altura = altura,
+                peso = peso,
+                nivelAtividade = nivelAtividade
+            )
 
-            usuario.imc = imc
+            usuario.imc = "%.2f".format(
+                Calculos.calcularIMC(peso, altura)
+            ).toDouble()
 
             val intent = Intent(this, ResultadoIMCActivity::class.java)
             intent.putExtra(Constant.EXTRA_USUARIO, usuario)
