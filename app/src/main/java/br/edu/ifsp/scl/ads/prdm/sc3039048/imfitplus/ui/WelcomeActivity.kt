@@ -15,7 +15,7 @@ class WelcomeActivity : AppCompatActivity() {
         val btnComecar = findViewById<Button>(R.id.btnComecar)
 
         btnComecar.setOnClickListener {
-            val intent = Intent(this, DadosPessoaisActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }

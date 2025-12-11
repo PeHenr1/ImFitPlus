@@ -45,4 +45,7 @@
     <string name="resumo_saude">Resumo da Saúde</string>
     <string name="ver_resumo">Gerar Resumo</string>
     <string name="recomendacao">Recomendação de Ingestão de Água</string>
+    <string name="historico_de_calculos">Histórico de Cálculos</string>
+    <string name="novo_cadastro">Novo Cadastro</string>
+    <string name="ver_historico">Ver Histórico</string>
 </resources>
