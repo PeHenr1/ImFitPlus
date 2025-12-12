@@ -17,6 +17,7 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
 
         private const val COL_ID = "id"
         private const val COL_NOME = "nome"
+        private const val COL_DATA_NASC = "dataNasc"
         private const val COL_IDADE = "idade"
         private const val COL_SEXO = "sexo"
         private const val COL_ALTURA = "altura"
@@ -28,11 +29,14 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
         private const val COL_GASTO = "gastoCalorico"
         private const val COL_PESO_IDEAL = "pesoIdeal"
 
+        private const val COL_FREQ_CARD = "freqCard"
+
         val CREATE_TABLE = """
             CREATE TABLE IF NOT EXISTS $TABLE_USUARIO (
                 $COL_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 $COL_NOME TEXT,
                 $COL_IDADE INTEGER,
+                $COL_DATA_NASC TEXT,
                 $COL_SEXO TEXT,
                 $COL_ALTURA REAL,
                 $COL_PESO REAL,
@@ -41,7 +45,8 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
                 $COL_CATEGORIA TEXT,
                 $COL_TMB REAL,
                 $COL_GASTO REAL,
-                $COL_PESO_IDEAL REAL
+                $COL_PESO_IDEAL REAL,
+                $COL_FREQ_CARD REAL
             );
         """
     }
@@ -100,6 +105,7 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
     private fun Usuario.toContentValues() = ContentValues().apply {
         put(COL_NOME, nome)
         put(COL_IDADE, idade)
+        put(COL_DATA_NASC, dataNasc)
         put(COL_SEXO, sexo)
         put(COL_ALTURA, altura)
         put(COL_PESO, peso)
@@ -109,12 +115,14 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
         put(COL_TMB, tmb)
         put(COL_GASTO, gastoCaloricoDiario)
         put(COL_PESO_IDEAL, pesoIdeal)
+        put(COL_FREQ_CARD, freqCard)
     }
 
     private fun Cursor.toUsuario() = Usuario(
         id = getInt(getColumnIndexOrThrow(COL_ID)),
         nome = getString(getColumnIndexOrThrow(COL_NOME)),
         idade = getInt(getColumnIndexOrThrow(COL_IDADE)),
+        dataNasc = getString(getColumnIndexOrThrow(COL_DATA_NASC)),
         sexo = getString(getColumnIndexOrThrow(COL_SEXO)),
         altura = getDouble(getColumnIndexOrThrow(COL_ALTURA)),
         peso = getDouble(getColumnIndexOrThrow(COL_PESO)),
@@ -123,6 +131,7 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
         categoria = getString(getColumnIndexOrThrow(COL_CATEGORIA)),
         tmb = getDouble(getColumnIndexOrThrow(COL_TMB)),
         gastoCaloricoDiario = getDouble(getColumnIndexOrThrow(COL_GASTO)),
-        pesoIdeal = getDouble(getColumnIndexOrThrow(COL_PESO_IDEAL))
+        pesoIdeal = getDouble(getColumnIndexOrThrow(COL_PESO_IDEAL)),
+        freqCard = getDouble(getColumnIndexOrThrow(COL_FREQ_CARD))
     )
 }

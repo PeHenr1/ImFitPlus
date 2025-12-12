@@ -80,21 +80,22 @@
                 android:layout_marginBottom="12dp"/>
 
             <TextView
-                android:id="@+id/labelIdade"
-                android:text="@string/idade"
+                android:id="@+id/labelDataNasc"
+                android:text="@string/data_nascimento"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/edtIdade"/>
-
+                android:labelFor="@id/edtDataNasc"/>
             <EditText
-                android:id="@+id/edtIdade"
-                android:inputType="number"
-                android:autofillHints="age"
-                android:textColorHint="#757575"
+                android:id="@+id/edtDataNasc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/aaaa_mm_dd"
+                android:textColorHint="#757575"
+                android:autofillHints="date"
+                android:inputType="date"
                 android:layout_marginBottom="12dp"/>
 
             <TextView

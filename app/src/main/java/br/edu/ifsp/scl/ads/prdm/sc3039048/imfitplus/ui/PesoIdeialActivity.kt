@@ -9,6 +9,7 @@ import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Usuario
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.databinding.ActivityPesoIdealBinding
 import java.math.BigDecimal
 import java.math.RoundingMode
+import java.time.LocalDate
 
 class PesoIdealActivity : AppCompatActivity() {
 
@@ -40,7 +41,30 @@ class PesoIdealActivity : AppCompatActivity() {
                 else -> "Você está no peso ideal!"
             }
 
+            val freqCardMax = Calculos.calculaFrequenciaCardiacaMax(LocalDate.parse(usuario.dataNasc))
+            val porcentZona = Calculos.calculaZona(freqCardMax)
+            usuario.freqCard = BigDecimal(freqCardMax).setScale(0, RoundingMode.HALF_UP).toDouble()
+
+            val msgZona = when {
+                (porcentZona >= 50 && porcentZona <= 60) -> "Leve"
+                (porcentZona > 60 && porcentZona <= 70) -> "Queima de Gordura"
+                (porcentZona > 70 && porcentZona <= 80) -> "Aeróbica"
+                (porcentZona > 80 && porcentZona <= 90) -> "Anaeróbica"
+                else -> "Erro no Cálculo"
+            }
+
+            val msgFreqCard = when {
+                (porcentZona >= 50 && porcentZona <= 60) -> "Frequência cardíaca deve estar entre (50% - 60%)"
+                (porcentZona > 60 && porcentZona <= 70) -> "Frequência cardíaca deve estar entre (60% - 70%)"
+                (porcentZona > 70 && porcentZona <= 80) -> "Frequência cardíaca deve estar entre (70% - 80%)"
+                (porcentZona > 80 && porcentZona <= 90) -> "Frequência cardíaca deve estar entre (80% - 90%)"
+                else -> "Cuidado!"
+            }
+
             binding.tvMensagem.text = mensagem
+            binding.tvZona.text = msgZona
+            binding.tvFreqCard.text = "Sua Frequência Cardíaca Máxima é de %.0f".format(freqCardMax)
+            binding.tvMensagemFreq.text = msgFreqCard
         }
 
         binding.btnResumoSaude.setOnClickListener {

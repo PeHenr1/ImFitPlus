@@ -8,6 +8,7 @@ data class Usuario(
     var id: Int = 0,
     val nome: String,
     val idade: Int,
+    val dataNasc: String,
     val sexo: String,
     val altura: Double,
     val peso: Double,
@@ -16,6 +17,7 @@ data class Usuario(
     var tmb: Double = 0.0,
     var gastoCaloricoDiario: Double = 0.0,
     var categoria: String = "",
-    var pesoIdeal: Double = 0.0
+    var pesoIdeal: Double = 0.0,
+    var freqCard: Double = 0.0
 ) : Parcelable
 

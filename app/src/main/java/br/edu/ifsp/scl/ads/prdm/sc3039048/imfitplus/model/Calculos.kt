@@ -1,5 +1,8 @@
 package br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model
 
+import java.time.LocalDate
+import java.time.Period
+
 object Calculos {
 
     fun calcularIMC(peso: Double, altura: Double): Double {
@@ -41,5 +44,20 @@ object Calculos {
         }
 
         return tmb * fator
+    }
+
+    fun calculateAge(birthDate: LocalDate): Int{
+        val currentDate = LocalDate.now()
+        return Period.between(birthDate, currentDate).years
+    }
+
+    fun calculaFrequenciaCardiacaMax(birthDate: LocalDate): Double{
+        val idade = calculateAge(birthDate)
+        return (220 - idade).toDouble()
+    }
+
+    fun calculaZona(valor: Double): Double{
+        val calculo = valor * 100
+        return calculo/220
     }
 }

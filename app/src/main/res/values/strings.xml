@@ -48,4 +48,10 @@
     <string name="historico_de_calculos">Histórico de Cálculos</string>
     <string name="novo_cadastro">Novo Cadastro</string>
     <string name="ver_historico">Ver Histórico</string>
+    <string name="data_nascimento">Data de Nascimento</string>
+    <string name="dd_mm_aaaa">DD-MM-AAAA</string>
+    <string name="aaaa_mm_dd">AAAA-MM-DD</string>
+    <string name="frequencia_card_max">Frequência Cardíaca Máxima</string>
+    <string name="zona_de_treino">Sua zona de treino é:</string>
+
 </resources>
