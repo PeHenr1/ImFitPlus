@@ -7,6 +7,8 @@ import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Calculos
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Constant.EXTRA_USUARIO
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.model.Usuario
 import br.edu.ifsp.scl.ads.prdm.sc3039048.imfitplus.databinding.ActivityPesoIdealBinding
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class PesoIdealActivity : AppCompatActivity() {
 
@@ -30,7 +32,7 @@ class PesoIdealActivity : AppCompatActivity() {
             val diferenca = it.peso - pesoIdeal
 
             binding.tvPesoIdeal.text = "%.2f kg".format(pesoIdeal)
-            usuario.pesoIdeal = pesoIdeal
+            usuario.pesoIdeal = BigDecimal(pesoIdeal).setScale(2, RoundingMode.HALF_UP).toDouble()
 
             val mensagem = when {
                 diferenca > 0 -> "Você está %.2f kg acima do ideal".format(diferenca)
